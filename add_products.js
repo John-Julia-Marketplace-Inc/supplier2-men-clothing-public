@@ -154,7 +154,6 @@ async function add_products(product) {
         try {
             const response = await shopify.product.create(new_product);
             console.log(`Product created successfully! ${response.title}`);
-            console.log('Shopify Response:', response);
         } catch (error) {
             if (error.extensions && error.extensions.code === 'THROTTLED') {
                 await handleRateLimit(error);

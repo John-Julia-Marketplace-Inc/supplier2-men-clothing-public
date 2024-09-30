@@ -76,8 +76,6 @@ const updateInventoryToZero = async (sku) => {
                 const inventoryLevelId = variant.inventoryItem.inventoryLevels.edges[0].node.id;
                 const current_qty = variant.inventoryItem.inventoryLevels.edges[0].node.available;
 
-                console.log(`Updating SKU: ${variant.sku}, Current Qty: ${current_qty}, New Qty: 0`);
-
                 if (inventoryLevelId) {
                     const mutation = `
                     mutation {

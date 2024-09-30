@@ -129,11 +129,8 @@ const updateInventoryAndCost = async (sku, newQuantity, size, newCost, updateUni
                     const inventoryItemId = variant.inventoryItem.id;
 
                     const current_qty = variant.inventoryItem.inventoryLevels.edges[0].node.available;
-                    console.log('Current qty:', current_qty);
-                    console.log('New qty:', newQuantity);
 
                     const availableDelta = parseInt(newQuantity) - parseInt(current_qty);
-                    console.log('New delta:', availableDelta);
                     
                     if (availableDelta == 0 || availableDelta == '0') { 
                         console.log(`No update needed for ${sku} size: ${size}`)
@@ -141,7 +138,6 @@ const updateInventoryAndCost = async (sku, newQuantity, size, newCost, updateUni
                     }
 
                     const inventoryLevelId = variant.inventoryItem.inventoryLevels.edges[0].node.id;
-                    console.log('inventoryLevelId:', inventoryLevelId);
 
                     if (inventoryLevelId) {
                         const mutation = `
